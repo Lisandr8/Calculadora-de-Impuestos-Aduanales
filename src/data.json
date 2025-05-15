@@ -1,0 +1,38 @@
+{
+  "soloItbis": [
+    { "item": "Celulares" },
+    { "item": "Tablets" },
+    { "item": "Laptops" },
+    { "item": "Toners" },
+    { "item": "Web Cams" },
+    { "item": "Teclados" },
+    { "item": "Routers" },
+    { "item": "Mouses" },
+    { "item": "Impresoras" },
+    { "item": "Escáners" },
+    { "item": "Monitores para computadoras" },
+    { "item": "Bocinas para computadoras" }
+  ],
+
+  "plusGravamen": [
+    { "item": "Celulares", "gravamen": 8 },
+    { "item": "Ropa", "gravamen": 20 },
+    { "item": "Decodificadora para TV", "gravamen": 3 },
+    { "item": "Suplementos en Polvo", "gravamen": 20 },
+    { "item": "Bocinas/Equipos de Música", "gravamen": 14 },
+    { "item": "Accesorios de Celulares", "gravamen": 20 },
+    { "item": "Relojes (No Metales Preciosos)", "gravamen": 20 },
+    { "item": "Proyectores", "gravamen": 20 },
+    { "item": "Video Juegos", "gravamen": 20 },
+    { "item": "Repuestos de Vehículos", "gravamen": 8 }
+  ],
+
+  "plusSelectivo": [
+    { "item": "Televisores", "selectivo": 10 },
+    { "item": "Joyas y Bisuteria", "selectivo": 20 },
+    { "item": "Relojes de Oro y Plata", "selectivo": 20 },
+    { "item": "Componentes de Música", "selectivo": 20 },
+    { "item": "Camaras Digitales y Videos", "selectivo": 20 },
+    { "item": "DVD", "selectivo": 20 }
+  ]
+}

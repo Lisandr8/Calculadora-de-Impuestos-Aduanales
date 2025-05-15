@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Impuestos Aduanales | DOP</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body class="bg-gray-900 text-gray-300">
+    <div class="w-5/10 mt-30 mx-auto">
+      <h1 class="text-3xl text-center">Calculadora de Impuestos Aduanales</h1>
+      <p class="text-gray-500 text-center">Paquetes sobre los US$ 200.00</p>
+
+      <form class="my-5 flex flex-col justify- gap-2">
+        <select
+          class="outline outline-gray-600 p-2 rounded-sm focus:outline-cyan-800"
+          id="categories"
+        >
+          <option disabled selected>Categorias</option>
+          <option class="bg-cyan-950" value="soloItbis">Pagan ITBIS</option>
+          <option class="bg-cyan-950" value="plusGravamen">
+            Pagan Gravamen + ITBIS
+          </option>
+          <option class="bg-cyan-950" value="plusSelectivo">
+            Pagan Selectivo + Gravamen + ITBIS
+          </option>
+        </select>
+
+        <div class="flex justify-between gap-5">
+          <input
+            class="w-6/10 outline outline-gray-600 p-2 rounded-sm focus:outline-cyan-800"
+            type="number"
+            id="inputUSD"
+            placeholder="Monto US$"
+            required
+          />
+          <button
+            class="w-4/10 bg-cyan-950 p-2 rounded-sm hover:bg-cyan-700 hover:cursor-pointer duration-300 ease-out active:bg-cyan-950"
+            type="button"
+            id="btnUSD"
+          >
+            Calcular Impuestos
+          </button>
+        </div>
+
+        <div class="flex justify-between gap-5">
+          <input
+            class="w-1/2 outline outline-gray-600 p-2 rounded-sm"
+            type="number"
+            id="outputUSD"
+            placeholder="Total US$"
+            readonly
+          />
+
+          <input
+            class="w-1/2 outline outline-gray-600 p-2 rounded-sm"
+            type="number"
+            id="outputDOP"
+            placeholder="Total RD$"
+            readonly
+          />
+          
+        </div>
+
+      </form>
+
+      <section class="bg-cyan-950 rounded-sm px-10" id="details">
+      </section>
+    </div>
+
+    <script src="./src/scripts.js"></script>
+  </body>
+</html>
