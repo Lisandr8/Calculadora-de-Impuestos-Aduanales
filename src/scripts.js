@@ -1,4 +1,3 @@
-// Variables
 const select = document.querySelector("#items");
 const inputUSD = document.querySelector("#inputUSD");
 const btnUSD = document.querySelector("#btnUSD");
@@ -47,15 +46,15 @@ function calculateTaxes(itemName, amount) {
   ];
 
   const item = allItems.find((i) => i.name === itemName);
-
   if (!item) return null;
 
   const taxes = item.tax;
   let totalTax = 0;
 
-  // Sumar todos los impuestos que tenga el item
+  // Convertir porcentaje a decimal
   for (const taxType in taxes) {
-    totalTax += amount * taxes[taxType];
+    const rate = taxes[taxType] / 100;
+    totalTax += amount * rate;
   }
 
   const totalUSD = amount + totalTax;
@@ -97,9 +96,7 @@ btnUSD.addEventListener("click", () => {
       ${Object.entries(result.taxDetails)
         .map(
           ([key, value]) => `
-        <li class="bg-cyan-800 font-semibold p-2 rounded-sm">${key}: <span class="font-normal">${
-            value * 100
-          }%</span></li>`
+        <li class="bg-cyan-800 font-semibold p-2 rounded-sm">${key}: <span class="font-normal">${value}%</span></li>`
         )
         .join("")}
     </ul>`;
