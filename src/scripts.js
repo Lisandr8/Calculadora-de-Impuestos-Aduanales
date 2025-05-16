@@ -90,10 +90,16 @@ btnUSD.addEventListener("click", () => {
   })}`;
 
   // Mostrar detalles de impuestos
-  details.innerHTML = `<h3 class="mb-3 text-white font-semibold">Detalles de Impuestos Aplicados</h3>
-    <ul>
+  details.className = "bg-cyan-950 rounded-sm p-5";
+  details.innerHTML = `<h3 class="text-xl mb-3 text-white font-semibold">Detalles de Impuestos Aplicados</h3>
+    <ul class="flex flex-wrap gap-5">
       ${Object.entries(result.taxDetails)
-        .map(([key, value]) => `<li>${key}: ${value * 100}%</li>`)
+        .map(
+          ([key, value]) => `
+        <li class="bg-cyan-800 font-semibold p-2 rounded-sm">${key}: <span class="font-normal">${
+            value * 100
+          }%</span></li>`
+        )
         .join("")}
     </ul>`;
 });
