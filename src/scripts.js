@@ -1,94 +1,99 @@
-// document.querySelector("btnDOP").addEventListener("click", (e) => {
-//   e.preventDefault();
+const select = document.querySelector("#items");
+const inputUSD = document.querySelector("#inputUSD");
+const btnUSD = document.querySelector("#btnUSD");
+const outputUSD = document.querySelector("#outputUSD");
+const outputDOP = document.querySelector("#outputDOP");
+const details = document.querySelector("#details");
 
-//   async function loadAPI() {
-//     const API =
-//       "https://api.getgeoapi.com/v2/currency/list?5f28997fb19be3ea2c1761362579f4c06b390813";
+const EXCHANGE_RATE = 56; // Ejemplo tasa de cambio USD a DOP
 
-//     try {
-//       const response = await fetch(API);
+let dataGlobal = null;
 
-//       if (!response.ok) throw new Error("Network response was not ok");
+// Cargar JSON y llenar el select (modificado para guardar dataGlobal)
+(async () => {
+  try {
+    const response = await fetch("src/data.json");
+    if (!response.ok) throw new Error("Error al cargar el JSON");
 
-//       const dataAPI = await response.json();
-//       console.log(dataAPI);
-//     } catch (error) {
-//       console.error("Error al llamar la API:", error);
-//     }
-//   }
+    const data = await response.json();
+    dataGlobal = data; // Guardamos global para usar luego
 
-//   loadAPI();
-// });
+    const allItems = [...data.soloItb, ...data.plusGrav, ...data.plusSel];
 
-document.querySelector("#categories").addEventListener("change", (e) => {
-  const selected = e.target.value;
+    // Ordenar alfabéticamente...
+    allItems.sort((a, b) => a.name.localeCompare(b.name));
 
-  async function loadData(selected) {
-    try {
-      const response = await fetch("./src/data.json");
+    allItems.forEach((item) => {
+      const option = document.createElement("option");
+      option.value = item.name;
+      option.textContent = item.name;
+      select.appendChild(option);
+    });
+  } catch (error) {
+    console.error("Error cargando las opciones al select", error);
+  }
+})();
 
-      if (!response.ok) throw new Error("Network response was not ok");
+// Función para calcular impuestos
+function calculateTaxes(itemName, amount) {
+  if (!dataGlobal) return null;
 
-      const data = await response.json();
-      const filter = data[selected];
+  // Buscar el item en las 3 categorías
+  const allItems = [
+    ...dataGlobal.soloItb,
+    ...dataGlobal.plusGrav,
+    ...dataGlobal.plusSel,
+  ];
 
-      const details = document.querySelector("#details");
-      details.innerHTML = `<h1 class="text-2xl text-center py-10">Impuestos 
-      Segun Articulos</h1>`;
+  const item = allItems.find((i) => i.name === itemName);
 
-      const ul = document.createElement("ul");
-      ul.className = "flex flex-wrap gap-2 justify-center pb-10 px-5";
+  if (!item) return null;
 
-      filter.forEach((obj) => {
-        const li = document.createElement("li");
-        li.className = "px-5 py-2 bg-gray-900 rounded-3xl";
+  const taxes = item.tax;
+  let totalTax = 0;
 
-        let text = `${obj.item}`;
-
-        if (obj.selectivo) {
-          text += ` - (Selectivo ${obj.selectivo}% + 20% Gravamen + 18% ITBIS)`;
-        } else if (obj.gravamen) {
-          text += ` - (Gravamen ${obj.gravamen}% + 18% ITBIS)`;
-        } else {
-          text += ` - 18% ITBIS`;
-        }
-
-        ul.appendChild(li);
-        li.textContent = text;
-      });
-
-      details.appendChild(ul);
-
-      // console.log(selected);
-    } catch (error) {
-      console.error("Error cargando el JSON:", error);
-    }
+  // Sumar todos los impuestos que tenga el item
+  for (const taxType in taxes) {
+    totalTax += amount * taxes[taxType];
   }
 
-  loadData(selected);
-});
+  const totalUSD = amount + totalTax;
+  const totalDOP = totalUSD * EXCHANGE_RATE;
 
-document.querySelector("#btnUSD").addEventListener("click", (e) => {
-  e.preventDefault();
+  return { totalUSD, totalDOP, taxDetails: taxes };
+}
 
-  const inputUSD = parseFloat(document.querySelector("#inputUSD").value);
-  const outputUSD = document.querySelector("#outputUSD");
+// Evento botón
+btnUSD.addEventListener("click", () => {
+  const selectedItem = select.value;
+  const amount = parseFloat(inputUSD.value);
 
-  const itbis = 0.18;
-
-  if (isNaN(inputUSD)) {
-    outputUSD.value = "Valor invalido";
-    outputUSD.value = "";
+  if (!selectedItem || isNaN(amount) || amount <= 0) {
+    alert("Selecciona un artículo y escribe un monto válido.");
     return;
   }
 
-  let totalUSD = inputUSD;
-  let totalDOP = inputUSD * 60
+  const result = calculateTaxes(selectedItem, amount);
 
-  if (inputUSD > 200) {
-    totalUSD += inputUSD * itbis;
+  if (!result) {
+    alert("No se encontró el artículo seleccionado.");
+    return;
   }
 
-  outputUSD.value = totalUSD.toFixed(2);
-  outputDOP.value = totalDOP.toFixed(2);
+  outputUSD.value = `US$ ${result.totalUSD.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+  outputDOP.value = `RD$ ${result.totalDOP.toLocaleString("es-DO", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+
+  // Mostrar detalles de impuestos
+  details.innerHTML = `<h3 class="mb-3 text-white font-semibold">Detalles de Impuestos Aplicados</h3>
+    <ul>
+      ${Object.entries(result.taxDetails)
+        .map(([key, value]) => `<li>${key}: ${value * 100}%</li>`)
+        .join("")}
+    </ul>`;
 });
