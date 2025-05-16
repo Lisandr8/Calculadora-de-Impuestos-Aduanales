@@ -1,3 +1,4 @@
+// Variables
 const select = document.querySelector("#items");
 const inputUSD = document.querySelector("#inputUSD");
 const btnUSD = document.querySelector("#btnUSD");
