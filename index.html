@@ -16,16 +16,9 @@
         <!-- Select Categoría -->
         <select
           class="outline outline-gray-600 p-2 rounded-sm focus:outline-cyan-800 bg-gray-800"
-          id="categories"
+          id="items"
         >
-          <option disabled selected>Categorías</option>
-          <option class="bg-cyan-950" value="soloItbis">Pagan ITBIS</option>
-          <option class="bg-cyan-950" value="plusGravamen">
-            Pagan Gravamen + ITBIS
-          </option>
-          <option class="bg-cyan-950" value="plusSelectivo">
-            Pagan Selectivo + Gravamen + ITBIS
-          </option>
+          <option disabled selected>Elige el articulo</option>
         </select>
 
         <!-- Input monto y botón -->
@@ -50,7 +43,7 @@
         <div class="flex flex-col sm:flex-row justify-between gap-4">
           <input
             class="w-full sm:w-1/2 outline outline-gray-600 p-2 rounded-sm"
-            type="number"
+            type="text"
             id="outputUSD"
             placeholder="Total US$"
             readonly
@@ -58,7 +51,7 @@
 
           <input
             class="w-full sm:w-1/2 outline outline-gray-600 p-2 rounded-sm"
-            type="number"
+            type="text"
             id="outputDOP"
             placeholder="Total RD$"
             readonly
