@@ -96,7 +96,7 @@ btnUSD.addEventListener("click", () => {
       ${Object.entries(result.taxDetails)
         .map(
           ([key, value]) => `
-        <li class="bg-cyan-800 font-semibold p-2 rounded-sm">${key}: <span class="font-normal">${parseInt(value)}%</span></li>`
+        <li class="bg-cyan-800 font-semibold p-2 rounded-sm">${key}: <span class="font-normal">${value.toFixed(1)}%</span></li>`
         )
         .join("")}
     </ul>`;
