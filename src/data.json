@@ -3,73 +3,73 @@
     {
       "name": "Computadoras",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Tablets",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Laptops",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Toners",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Web Cams",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Teclados",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Routers",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Mouses",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Impresoras",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Escáners",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Monitores Para Computadoras",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Bocinas Para Computadoras",
       "tax": {
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     }
   ],
@@ -78,71 +78,71 @@
     {
       "name": "Celulares",
       "tax": {
-        "Gravamen": 0.8,
-        "ITBIS": 0.18
+        "Gravamen": 8,
+        "ITBIS": 18
       }
     },
     {
       "name": "Ropa en General",
       "tax": {
-        "Gravamen": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Cajas Decodificadoras Para TV",
       "tax": {
-        "Gravamen": 0.3,
-        "ITBIS": 0.18
+        "Gravamen": 3,
+        "ITBIS": 18
       }
     },
     {
       "name": "Suplementos en Polvo",
       "tax": {
-        "Gravamen": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Bocinas Para Equipos de Música",
       "tax": {
-        "Gravamen": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Accesorios de Celulares",
       "tax": {
-        "Gravamen": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Relojes (no metales preciosos)",
       "tax": {
-        "Gravamen": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Proyectores",
       "tax": {
-        "Gravamen": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Video Juegos",
       "tax": {
-        "Gravamen": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Repuestos de Vehículos",
       "tax": {
-        "Gravamen": 0.8,
-        "ITBIS": 0.18
+        "Gravamen": 8,
+        "ITBIS": 18
       }
     }
   ],
@@ -151,49 +151,49 @@
     {
       "name": "Televisores",
       "tax": {
-        "Gravamen": 0.2,
+        "Gravamen": 20,
         "Selectivo": 0.1,
-        "ITBIS": 0.18
+        "ITBIS": 18
       }
     },
     {
       "name": "Joyas y Bisuteria",
       "tax": {
-        "Gravamen": 0.2,
-        "Selectivo": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "Selectivo": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Relojes de Oro y Plata",
       "tax": {
-        "Gravamen": 0.2,
-        "Selectivo": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "Selectivo": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Componentes de Música",
       "tax": {
-        "Gravamen": 0.2,
-        "Selectivo": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "Selectivo": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "Camaras Digitales y Videos",
       "tax": {
-        "Gravamen": 0.2,
-        "Selectivo": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "Selectivo": 20,
+        "ITBIS": 18
       }
     },
     {
       "name": "DVD",
       "tax": {
-        "Gravamen": 0.2,
-        "Selectivo": 0.2,
-        "ITBIS": 0.18
+        "Gravamen": 20,
+        "Selectivo": 20,
+        "ITBIS": 18
       }
     }
   ]
